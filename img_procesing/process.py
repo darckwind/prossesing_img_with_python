@@ -9,10 +9,10 @@ print(pix[1,1]) #obtiene los balores en rgb del pixel de la imagen
 img.save('alive_parrot.png')
 for y in range(0, img.size[1]):
     for x in range(0, img.size[0]):
-        if pix[x,y][0]==100 and pix[x,y][1] ==100 and pix[x,y][2]==100:
-            pix[x, y] = (100, 100, 100)
+        if pix[x,y][0]>200 and pix[x,y][1] >200 and pix[x,y][2]>200:
+            pix[x, y] = (256, 256, 256)
         else:
-            if pix[x,y][0]==0 and pix[x,y][1] ==0 and pix[x,y][2]==0:
+            if pix[x,y][0]<30 and pix[x,y][1]<30 and pix[x,y][2]<30:
                 pix[x, y] = (0, 0, 0)
             else:
                 if pix[x, y][0] > pix[x, y][1]:
