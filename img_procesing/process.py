@@ -12,16 +12,15 @@ for y in range(0, img.size[1]):
         if pix[x,y][0]>200 and pix[x,y][1] >200 and pix[x,y][2]>200:
             pix[x, y] = (256, 256, 256)
         else:
-            if pix[x,y][0]<30 and pix[x,y][1]<30 and pix[x,y][2]<30:
+            if (pix[x,y][0]<30 and pix[x,y][1]<30 and pix[x,y][2]<30):
                 pix[x, y] = (0, 0, 0)
             else:
-                if pix[x, y][0] > pix[x, y][1]:
-                    if pix[x, y][0] > pix[x, y][2]:
-                        pix[x, y] = (100, 0, 0)
+                if  pix[x, y][0] > pix[x, y][1] and pix[x, y][0] > pix[x, y][2]:
+                        pix[x, y] = (pix[x, y][0], 0, 0)
                 else:
                     if pix[x, y][1] > pix[x, y][2]:
-                        pix[x, y] = (0, 100, 0)
+                        pix[x, y] = (0, pix[x, y][1], 0)
                     else:
-                        pix[x, y] = (0, 0, 100)
+                        pix[x, y] = (0, 0, pix[x, y][2])
 
-img.save('alive_parrot.png')
+img.save('test.png')
