@@ -1,7 +1,7 @@
 from PIL import Image
 
 
-img = Image.open('conatel-22102018-ABAE-600.jpg')
+img = Image.open('Gran.Temuco_Satelital.png')
 pix = img.load()
 print('largo en x',img.size[0]) #obtiene el largo en los ejes x  de la img
 print('largo en y',img.size[1]) #obtiene el largo en los ejes y  de la img
@@ -12,6 +12,7 @@ green=0;
 banco=0;
 negro=0;
 pixeles =img.size[0]*img.size[1]
+
 for y in range(0, img.size[1]):
     for x in range(0, img.size[0]):
         if pix[x,y][0]>200 and pix[x,y][1] >200 and pix[x,y][2]>200:
