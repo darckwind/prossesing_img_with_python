@@ -1,7 +1,7 @@
 import landsatxplore.api
 import urllib.request
 
-api = landsatxplore.api.API("f.bunout01@ufromail.cl", "Pokemon22300")
+api = landsatxplore.api.API("************", "*********")
 
 # Request
 scenes = api.search(
