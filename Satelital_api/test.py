@@ -20,5 +20,5 @@ for scene in scenes:
     print(scene['displayId'])
     url = 'https://earthexplorer.usgs.gov/browse/full/landsat_8/'+scene['displayId']
     print(url)
-    urllib.request.urlretrieve(url, '/Users/franciscolagos/PycharmProjects/untitled/satelital_img/caca.jpeg')
+    urllib.request.urlretrieve(url, '/Users/franciscolagos/PycharmProjects/untitled/satelital_img/satelital_org_img.jpeg')
 api.logout()
