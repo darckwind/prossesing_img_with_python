@@ -2,7 +2,7 @@ import landsatxplore.api
 import urllib.request
 
 class Satelite:
-
+    #apriori
     #metodo encargado de la descarga desde el satelite LANDSAT_8_C1
     @staticmethod
     def descarga():
@@ -24,8 +24,10 @@ class Satelite:
         for scene in scenes:
             #print(scene['displayId'])
             url = 'https://earthexplorer.usgs.gov/browse/full/landsat_8/' + scene['displayId']
-            #print(url)
+            url_ir = 'https://earthexplorer.usgs.gov/browse/full/landsat_8/' + scene['displayId'] +'_TIR'
+            print(url)
             urllib.request.urlretrieve(url,'/Users/franciscolagos/PycharmProjects/untitled/satelital_img/satelital_org_img.jpeg')
+            urllib.request.urlretrieve(url_ir,'/Users/franciscolagos/PycharmProjects/untitled/satelital_img/satelital_org_ir_img.jpeg')
         api.logout()
 
 Satelite.descarga()

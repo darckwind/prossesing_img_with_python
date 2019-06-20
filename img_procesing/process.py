@@ -15,6 +15,7 @@ pixeles =img.size[0]*img.size[1]
 
 for y in range(0, img.size[1]):
     for x in range(0, img.size[0]):
+        print(pix[x,y][2])
         if pix[x,y][0]>200 and pix[x,y][1] >200 and pix[x,y][2]>200:
             banco=banco+1
             pix[x, y] = (0, 0, 0)
