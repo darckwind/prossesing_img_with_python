@@ -26,8 +26,9 @@ class Satelite:
             url = 'https://earthexplorer.usgs.gov/browse/full/landsat_8/' + scene['displayId']
             url_ir = 'https://earthexplorer.usgs.gov/browse/full/landsat_8/' + scene['displayId'] +'_TIR'
             print(url)
-            urllib.request.urlretrieve(url,'/Users/franciscolagos/PycharmProjects/untitled/satelital_img/satelital_org_img.jpeg')
-            urllib.request.urlretrieve(url_ir,'/Users/franciscolagos/PycharmProjects/untitled/satelital_img/satelital_org_ir_img.jpeg')
+            urllib.request.urlretrieve(url,'/Users/franciscolagos/PycharmProjects/untitled/satelital_img/satelital_org_img.jpg')
+            urllib.request.urlretrieve(url_ir,'/Users/franciscolagos/PycharmProjects/untitled/satelital_img/satelital_org_ir_img.jpg')
         api.logout()
+        return True
 
 Satelite.descarga()

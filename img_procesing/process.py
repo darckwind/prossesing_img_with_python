@@ -1,7 +1,11 @@
 from PIL import Image
 
 
-img = Image.open('/Users/franciscolagos/PycharmProjects/untitled/satelital_img/satelital_org_img.jpeg')
+img = Image.open('/Users/franciscolagos/PycharmProjects/untitled/satelital_img/satelital_org_img.jpg')
+print(img.mode)
+img = img.convert("RGBA")
+
+#carga de imagen
 pix = img.load()
 print('largo en x',img.size[0]) #obtiene el largo en los ejes x  de la img
 print('largo en y',img.size[1]) #obtiene el largo en los ejes y  de la img
@@ -15,30 +19,36 @@ pixeles =img.size[0]*img.size[1]
 
 for y in range(0, img.size[1]):
     for x in range(0, img.size[0]):
-        print(pix[x,y][2])
         if pix[x,y][0]>200 and pix[x,y][1] >200 and pix[x,y][2]>200:
             banco=banco+1
-            pix[x, y] = (0, 0, 0)
+            pix[x, y] = (0, 0, 0, 0)
             #pix[x, y] = (256, 256, 256)
         else:
             if (pix[x,y][0]<30 and pix[x,y][1]<30 and pix[x,y][2]<30):
                 negro =negro+1
-                pix[x, y] = (0, 0, 0)
+                pix[x, y] = (0, 0, 0 ,0)
             else:
                 if  pix[x, y][0] > pix[x, y][1] and pix[x, y][0] > pix[x, y][2]:
                     red=red+1
-                    pix[x, y] = (0, 0, 0)
+                    pix[x, y] = (0, 0, 0, 0)
                     #pix[x, y] = (pix[x, y][0], 0, 0)
                 else:
                     if pix[x, y][1] > pix[x, y][2]:
-                        green=green+1
-                        pix[x, y] = (0, pix[x, y][1], 0)
+                        if pix[x, y][1] > 90:
+                            pix[x, y] = (0, pix[x, y][1], 0)
+                            green=green+1
+                        else:
+                            pix[x, y] = (0, 0, 0, 0)
                     else:
                         blue=blue+1
-                        pix[x, y] = (0, 0, 0)
+                        pix[x, y] = (0, 0, 0, 0)
                         #pix[x, y] = (0, 0, pix[x, y][2])
 
+
+#proceso de guardado de la reconstruccion selectiva de la imagen
 img.save('/Users/franciscolagos/PycharmProjects/untitled/satelital_img_processed/satelital_processed.png')
+
+#imprecion de los datos de la imagen original
 print('cantidad de banco en la img: ',banco,' correspondiente a el: ',round((banco*100)/pixeles,0),'%')
 print('cantidad de negro en la img: ',negro,' correspondiente a el: ',round((negro*100)/pixeles,0),'%')
 print('cantidad de red en la img: ',red,' correspondiente a el: ',round((red*100)/pixeles,0),'%')
