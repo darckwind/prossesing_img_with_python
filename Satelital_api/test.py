@@ -17,15 +17,15 @@ class Satelite:
             end_date='2019-02-01',
             max_cloud_cover=1)
 
-        print('{} scenes found.'.format(len(scenes)))
+        #print('{} scenes found.'.format(len(scenes)))
 
-        print(scenes)
+        #print(scenes)
 
         for scene in scenes:
             #print(scene['displayId'])
             url = 'https://earthexplorer.usgs.gov/browse/full/landsat_8/' + scene['displayId']
             url_ir = 'https://earthexplorer.usgs.gov/browse/full/landsat_8/' + scene['displayId'] +'_TIR'
-            print(url)
+            #print(url)
             urllib.request.urlretrieve(url,'/Users/franciscolagos/PycharmProjects/untitled/satelital_img/satelital_org_img.jpg')
             urllib.request.urlretrieve(url_ir,'/Users/franciscolagos/PycharmProjects/untitled/satelital_img/satelital_org_ir_img.jpg')
         api.logout()
